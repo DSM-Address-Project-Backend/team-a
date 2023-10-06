@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class AddressProjactApplication
+class AddressProjectApplication
 
 fun main(args: Array<String>) {
-    runApplication<AddressProjactApplication>(*args)
+    runApplication<AddressProjectApplication>(*args)
 }
