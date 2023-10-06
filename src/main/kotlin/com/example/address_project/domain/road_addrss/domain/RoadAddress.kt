@@ -1,12 +1,10 @@
 package com.example.address_project.domain.road_addrss.domain
-import com.example.address_project.domain.road_code.domain.RoadCodeEntity
+import com.example.address_project.domain.road_code.domain.RoadCode
 import com.example.address_project.global.entity.BaseUUIDEntity
 import org.hibernate.annotations.DynamicInsert
-import java.util.UUID
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.FetchType
-import javax.persistence.Id
 import javax.persistence.JoinColumn
 import javax.persistence.ManyToOne
 
@@ -28,7 +26,7 @@ class RoadAddress(
     @Column(columnDefinition = "BIT(5)", nullable = false)
     val isGiveDetailAddress: Boolean,
 
-    roadCodeEntity: RoadCodeEntity
+    roadCodeEntity: RoadCode
 ): BaseUUIDEntity() {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "road_coad_id", columnDefinition = "BINARY(16)", nullable = false)

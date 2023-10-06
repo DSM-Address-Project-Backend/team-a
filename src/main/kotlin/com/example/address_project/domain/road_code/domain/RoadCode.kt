@@ -1,7 +1,6 @@
 package com.example.address_project.domain.road_code.domain
 
 import com.example.address_project.global.entity.BaseUUIDEntity
-import java.util.UUID
 
 import javax.persistence.Entity
 import javax.persistence.Table
@@ -9,7 +8,7 @@ import javax.persistence.Column
 
 @Table(name = "tbl_road_code")
 @Entity
-class RoadCodeEntity(
+class RoadCode(
 
     @Column(columnDefinition = "VARCHAR(80)", nullable = false)
     val roadName: String,
