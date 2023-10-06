@@ -1,15 +1,15 @@
 package com.example.address_project.domain.road_addrss.domain
 import com.example.address_project.domain.road_code.domain.RoadCode
 import com.example.address_project.global.entity.BaseUUIDEntity
-import org.hibernate.annotations.DynamicInsert
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.FetchType
 import javax.persistence.JoinColumn
 import javax.persistence.ManyToOne
+import javax.persistence.Table
 
-@DynamicInsert
-@Entity(name = "tbl_road_address")
+@Table(name = "tbl_road_address")
+@Entity
 class RoadAddress(
     @Column(columnDefinition = "CHAR(26)", nullable = false)
     val managementNumber: String,
