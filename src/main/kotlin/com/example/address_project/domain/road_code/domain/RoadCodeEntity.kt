@@ -1,6 +1,7 @@
 package com.example.address_project.domain.road_code.domain
 
 import com.example.address_project.global.entity.BaseUUIDEntity
+import java.util.UUID
 
 import javax.persistence.Entity
 import javax.persistence.Table
