@@ -1,16 +1,18 @@
 package com.example.address_project.domain.street_number.domain
 
+import com.example.address_project.domain.road_addrss.domain.RoadAddress
 import com.example.address_project.global.entity.BaseUUIDEntity
 import org.hibernate.annotations.DynamicInsert
 import java.util.*
 import javax.persistence.Column
 import javax.persistence.Entity
+import javax.persistence.FetchType.LAZY
+import javax.persistence.JoinColumn
+import javax.persistence.ManyToOne
 
 @DynamicInsert
 @Entity(name = "tbl_street_number")
 class StreetNumber (
-     id : UUID,
-
     @Column(columnDefinition = "CHAR(10)", nullable = false)
     val legalDistrictCode: String,
 
@@ -43,4 +45,11 @@ class StreetNumber (
 
     @Column(columnDefinition = "VARCHAR(40)", nullable = false)
     val engLegalName: String,
-) : BaseUUIDEntity(id)
+
+    roadAddress: RoadAddress
+) : BaseUUIDEntity() {
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "road_address_id", columnDefinition = "BINARY(16)", nullable = false)
+    var roadAddress = roadAddress
+        protected set
+}
