@@ -1,4 +1,4 @@
-package com.example.address_projact
+package com.example.address_project
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
