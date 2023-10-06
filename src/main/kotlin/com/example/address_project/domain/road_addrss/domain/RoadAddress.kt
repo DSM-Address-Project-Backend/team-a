@@ -1,4 +1,5 @@
 package com.example.address_project.domain.road_addrss.domain
+
 import org.hibernate.annotations.DynamicInsert
 import java.util.UUID
 import javax.persistence.Column
