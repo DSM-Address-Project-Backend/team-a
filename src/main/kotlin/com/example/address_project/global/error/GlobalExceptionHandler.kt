@@ -1,7 +1,7 @@
-package com.example.address_project.global.exception
+package com.example.address_project.global.error
 
-import com.example.address_project.global.error.BusinessException
-import com.example.address_project.global.error.ErrorResponse
+import com.example.address_project.global.error.exception.BusinessException
+import com.example.address_project.global.error.exception.ErrorResponse
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ExceptionHandler

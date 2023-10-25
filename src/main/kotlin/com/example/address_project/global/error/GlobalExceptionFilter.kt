@@ -1,7 +1,7 @@
-package com.example.address_project.global.exception
+package com.example.address_project.global.error
 
-import com.example.address_project.global.error.BusinessException
-import com.example.address_project.global.error.ErrorResponse
+import com.example.address_project.global.error.exception.BusinessException
+import com.example.address_project.global.error.exception.ErrorResponse
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.web.filter.OncePerRequestFilter
 import java.io.IOException
@@ -29,7 +29,8 @@ class GlobalExceptionFilter(
 
     @Throws(IOException::class)
     private fun writeErrorResponse(response: HttpServletResponse, status:Int, errorResponse:
-    ErrorResponse) {
+    ErrorResponse
+    ) {
         response.status = status
         response.contentType = "application/json"
         response.characterEncoding = "UTF-8"

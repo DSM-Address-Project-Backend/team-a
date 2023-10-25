@@ -1,4 +1,4 @@
-package com.example.address_project.global.error
+package com.example.address_project.global.error.exception
 
 import java.time.LocalDateTime
 
