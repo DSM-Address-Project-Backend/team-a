@@ -19,6 +19,7 @@ repositories {
 dependencies {
     implementation ("org.springframework.boot:spring-boot-starter-batch")
     testImplementation ("org.springframework.batch:spring-batch-test")
+    implementation("org.springframework.cloud:spring-cloud-starter-openfeign:4.0.1")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-validation")
