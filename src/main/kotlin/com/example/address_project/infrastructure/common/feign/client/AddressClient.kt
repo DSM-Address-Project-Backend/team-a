@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam
 interface AddressClient {
 
     @GetMapping("/download.do")
-    fun getIsHomecomingDay(
+    fun getAddressZipFile(
         @RequestParam reqType: String,
         @RequestParam regYmd: Int,
         @RequestParam ctprvnCd: Int,
