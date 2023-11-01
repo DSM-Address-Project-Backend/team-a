@@ -1,7 +1,5 @@
 server:
   shutdown: graceful
-  servlet:
-    context-path: /pick
 
 spring:
   datasource:
