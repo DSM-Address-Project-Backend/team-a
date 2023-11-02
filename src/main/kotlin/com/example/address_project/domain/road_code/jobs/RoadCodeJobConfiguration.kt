@@ -20,8 +20,7 @@ class RoadCodeJobConfiguration(
             .start(roadCodeStep())
             .build()
     }
-
-
+    
     @Bean
     fun roadCodeStep () : Step {
         return stepBuilderFactory.get("roadCodeStep")
