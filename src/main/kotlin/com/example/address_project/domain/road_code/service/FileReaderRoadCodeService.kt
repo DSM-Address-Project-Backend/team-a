@@ -2,6 +2,8 @@ package com.example.address_project.domain.road_code.service
 
 import com.example.address_project.domain.road_code.domain.RoadCode
 import com.example.address_project.domain.road_code.domain.repository.RoadCodeRepository
+import com.example.address_project.domain.road_code.exception.FileInternalError
+import com.example.address_project.domain.road_code.exception.FileNotFoundException
 import org.springframework.stereotype.Service
 import java.io.BufferedReader
 import java.io.File
@@ -22,7 +24,7 @@ class FileReaderRoadCodeService(
                     file.forEachLine { line ->
                         val spacing = line.split("|")
 
-                        val roadCode = RoadCode(
+                        val roadCode = RoadCode( // API 설명서에 있는 순서대로 저장
                             roadName = spacing[4],
                             cityName = spacing[6],
                             sggName = spacing[7],
@@ -39,11 +41,11 @@ class FileReaderRoadCodeService(
                         roadCodeRepository.save(roadCode)
                     }
                 }
-            } catch (e:Exception) {
-                e.printStackTrace() //TODO 예외 추가
+            } catch(error: FileInternalError)  {
+                throw error
             }
         } else {
-            throw Exception() // TODO 예외 추가
+            throw FileNotFoundException
         }
     }
 }
