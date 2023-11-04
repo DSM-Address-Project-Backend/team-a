@@ -42,6 +42,8 @@ class FileReaderRoadCodeService(
             } catch (e:Exception) {
                 e.printStackTrace() //TODO 예외 추가
             }
+        } else {
+            throw Exception() // TODO 예외 추가
         }
     }
 }
