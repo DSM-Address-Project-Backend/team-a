@@ -29,9 +29,8 @@ class AddressZipFileService(
         )
     }
 
-    private fun getAddressInfo(language: String, year: Int, month: String): ByteArray {
+    private fun getAddressInfo(language: String, year: String, month: String): ByteArray {
         val month = month.padStart(2, '0')
-        val year = year.toString()
 
         val fileNameElement = buildFileName(language, year, month)
 
