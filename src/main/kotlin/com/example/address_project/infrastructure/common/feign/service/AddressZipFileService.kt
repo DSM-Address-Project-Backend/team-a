@@ -23,7 +23,7 @@ class AddressZipFileService(
     private val addressClient: AddressClient,
 ) {
 
-    fun unZipFile(unZipFile: UnzipFile) {
+    fun AddressfileWriter(unZipFile: UnzipFile) {
         Files.write(
             Paths.get(unZipFile.zipFilePath), getAddressInfo(unZipFile.reqType, unZipFile.year, unZipFile.month)
         )
