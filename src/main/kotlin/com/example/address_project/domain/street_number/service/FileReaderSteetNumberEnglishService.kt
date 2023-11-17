@@ -12,7 +12,7 @@ import java.util.*
 import javax.transaction.Transactional
 
 @Service
-class FileReaderSteetNumberEnglishService(
+class FileReaderStreetNumberEnglishService(
         private val streetNumberRepository: StreetNumberRepository
 ) {
     @Transactional
