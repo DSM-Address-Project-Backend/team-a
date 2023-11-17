@@ -4,6 +4,7 @@ import com.example.address_project.domain.road_code.domain.RoadCode
 import com.example.address_project.domain.road_code.domain.repository.RoadCodeRepository
 import com.example.address_project.domain.road_code.exception.FileInternalError
 import com.example.address_project.domain.road_code.exception.FileNotFoundException
+import com.example.address_project.infrastructure.common.feign.dto.UnzipFile
 import com.example.address_project.infrastructure.common.feign.service.AddressZipFileService
 import org.springframework.stereotype.Service
 import java.io.BufferedReader
@@ -17,8 +18,8 @@ class FileReaderRoadCodeService(
     private val addressZipFileService: AddressZipFileService
 ) {
     @Transactional
-    fun fileReaderRoadCode() {
-        val file = File("") //TODO 파일명 추가
+    fun fileReaderRoadCode(fileName: File) {
+        val file = File(fileName.name) //TODO 파일명 추가
         if (file.exists()) {
             val reader = BufferedReader(FileReader(file))
             try {
