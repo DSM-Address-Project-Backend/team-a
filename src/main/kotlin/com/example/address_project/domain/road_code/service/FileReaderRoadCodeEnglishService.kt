@@ -12,14 +12,14 @@ import java.io.FileReader
 import javax.transaction.Transactional
 
 @Service
-class FileReaderEnglishService (
+class FileReaderRoadCodeEnglishService (
     private val roadCodeRepository: RoadCodeRepository,
     private val addressZipFileService: AddressZipFileService
 ) {
 
     @Transactional
-    fun fileReaderRoadCode() {
-        val file = File("") //TODO 파일명 추가
+    fun fileReaderRoadCode(fileName: File) {
+        val file = File(fileName.name) //TODO 파일명 추가
         if (file.exists()) {
             val reader = BufferedReader(FileReader(file))
             try {
