@@ -34,18 +34,6 @@ class StreetNumber (
     @Column(columnDefinition = "INT(4)", nullable = false)
     val areaSubNum: Int,
 
-    @Column(columnDefinition = "VARCHAR(40)", nullable = false)
-    val engCityName: String,
-
-    @Column(columnDefinition = "VARCHAR(40)", nullable = false)
-    val engSiGunGuName: String,
-
-    @Column(columnDefinition = "VARCHAR(40)", nullable = false)
-    val engLegalEmdName: String,
-
-    @Column(columnDefinition = "VARCHAR(40)", nullable = false)
-    val engLegalName: String,
-
     roadAddress: RoadAddress
 ) : BaseUUIDEntity() {
     @ManyToOne(fetch = LAZY)
