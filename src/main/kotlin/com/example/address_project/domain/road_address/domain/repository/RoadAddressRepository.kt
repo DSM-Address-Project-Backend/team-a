@@ -1,6 +1,6 @@
-package com.example.address_project.domain.road_addrss.domain.repository
+package com.example.address_project.domain.road_address.domain.repository
 
-import com.example.address_project.domain.road_addrss.domain.RoadAddress
+import com.example.address_project.domain.road_address.domain.RoadAddress
 import org.springframework.data.repository.CrudRepository
 import java.util.UUID
 

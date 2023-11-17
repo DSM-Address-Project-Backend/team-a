@@ -1,8 +1,7 @@
 package com.example.address_project.domain.street_number.domain
 
-import com.example.address_project.domain.road_addrss.domain.RoadAddress
+import com.example.address_project.domain.road_address.domain.RoadAddress
 import com.example.address_project.global.entity.BaseUUIDEntity
-import java.util.*
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.FetchType.LAZY
