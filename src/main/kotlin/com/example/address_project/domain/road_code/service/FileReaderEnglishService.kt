@@ -12,10 +12,11 @@ import java.io.FileReader
 import javax.transaction.Transactional
 
 @Service
-class FileReaderRoadCodeService(
+class FileReaderEnglishService (
     private val roadCodeRepository: RoadCodeRepository,
     private val addressZipFileService: AddressZipFileService
 ) {
+
     @Transactional
     fun fileReaderRoadCode() {
         val file = File("") //TODO 파일명 추가
@@ -27,18 +28,16 @@ class FileReaderRoadCodeService(
                         val spacing = line.split("|")
 
                         val roadCode = RoadCode( // API 설명서에 있는 순서대로 저장
-                            roadName = spacing[4],
-                            cityName = spacing[6],
-                            sggName = spacing[7],
-                            emdName = spacing[10],
-                            emdSection = spacing[8].toBoolean(),
-                            emdCode = spacing[1],
-                            roadNameCode = spacing[1] + spacing[2]
+                            engRodeName = spacing[4],
+                            engCityName = spacing[15],
+                            engSggName = spacing[16],
+                            engEmdName = spacing[17],
+                            emdSerialNum = spacing[2],
                         )
                         roadCodeRepository.save(roadCode)
                     }
                 }
-            } catch(error: FileInternalError)  {
+            } catch (error: FileInternalError) {
                 throw error
             }
         } else {

@@ -11,39 +11,39 @@ import javax.persistence.Column
 class RoadCode(
 
     @Column(columnDefinition = "VARCHAR(80)", nullable = false)
-    val roadName: String,
+    val roadName: String? = null,
 
     @Column(columnDefinition = "VARCHAR(20)", nullable = false)
-    val cityName: String,
+    val cityName: String? = null,
 
     @Column(columnDefinition = "VARCHAR(20)", nullable = false)
-    val sggName: String,
+    val sggName: String? = null,
 
     @Column(columnDefinition = "VARCHAR(20)", nullable = false)
-    val emdName: String,
+    val emdName: String? = null,
 
     @Column(columnDefinition = "TINYINT(1)", nullable = false)
-    val emdSection: Boolean,
+    val emdSection: Boolean? = null,
 
     @Column(columnDefinition = "CHAR(3)", nullable = false)
-    val emdCode: String,
+    val emdCode: String? = null,
 
     @Column(columnDefinition = "VARCHAR(80)", nullable = false)
-    val engRodeName: String,
+    val engRodeName: String? = null,
 
     @Column(columnDefinition = "VARCHAR(20)", nullable = false)
-    val engCityName: String,
+    val engCityName: String? = null,
 
     @Column(columnDefinition = "VARCHAR(20)", nullable = false)
-    val engSggName: String,
+    val engSggName: String? = null,
 
     @Column(columnDefinition = "VARCHAR(20)", nullable = false)
-    val engEmdName: String,
+    val engEmdName: String? = null,
 
     @Column(columnDefinition = "CHAR(2)", nullable = false)
-    val emdSerialNum: String,
+    val emdSerialNum: String? = null,
 
     @Column(columnDefinition = "CHAR(12)", nullable = false)
-    val roadNameCode: String
+    val roadNameCode: String? = null
 
 ) : BaseUUIDEntity()
