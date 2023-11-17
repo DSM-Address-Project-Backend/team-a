@@ -17,31 +17,5 @@ class FileReaderRoadCodeEnglishService (
     private val addressZipFileService: AddressZipFileService
 ) {
 
-    @Transactional
-    fun fileReaderRoadCode(fileName: File) {
-        val file = File(fileName.name) //TODO 파일명 추가
-        if (file.exists()) {
-            val reader = BufferedReader(FileReader(file))
-            try {
-                reader.use {
-                    file.forEachLine { line ->
-                        val spacing = line.split("|")
-
-                        val roadCode = RoadCode( // API 설명서에 있는 순서대로 저장
-                            engRodeName = spacing[4],
-                            engCityName = spacing[15],
-                            engSggName = spacing[16],
-                            engEmdName = spacing[17],
-                            emdSerialNum = spacing[2],
-                        )
-                        roadCodeRepository.save(roadCode)
-                    }
-                }
-            } catch (error: FileInternalError) {
-                throw error
-            }
-        } else {
-            throw FileNotFoundException
-        }
-    }
+    
 }
