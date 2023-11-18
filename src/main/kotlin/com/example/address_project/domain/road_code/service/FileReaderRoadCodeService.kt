@@ -26,7 +26,7 @@ class FileReaderRoadCodeService (
 
         addressZipFileService.addressFileWriter(unzipFile)
 
-        saveDatabase(filePath)
+        saveRoadCode(filePath)
     }
 
     private fun saveFile(file: MultipartFile): String {
@@ -43,7 +43,7 @@ class FileReaderRoadCodeService (
         return targetLocation.absolutePath
     }
 
-    private fun saveDatabase(filePath: String) {
+    private fun saveRoadCode(filePath: String) {
         val lines = File(filePath).readLines()
         for (line in lines) {
             val columns = line.split("|")
