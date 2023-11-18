@@ -14,7 +14,7 @@ import java.io.File
 class FileReaderRoadCodeEnglishService (
 
     @Value("\${upload.dir}")
-    private  var uploadDir: String,
+    private var uploadDir: String,
 
     private val roadCodeRepository: RoadCodeRepository,
 
