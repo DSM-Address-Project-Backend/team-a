@@ -22,7 +22,7 @@ class FileReaderRoadCodeEnglishService (
 ) {
 
     @Transactional
-    fun readerEnglish(reqType: String, year: String, month: String, fileName: String, realFileName: String, file: MultipartFile, unzipFile: UnzipFile) {
+    fun readerEnglish(file: MultipartFile, unzipFile: UnzipFile) {
 
         val filePath = saveFile(file)
 
