@@ -21,3 +21,6 @@ spring:
 
   lifecycle:
     timeout-per-shutdown-phase: 20s
+
+upload:
+  dir: ${upload}
