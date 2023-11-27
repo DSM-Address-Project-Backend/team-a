@@ -11,25 +11,25 @@ import javax.persistence.Table
 @Table(name = "tbl_road_address")
 @Entity
 class RoadAddress(
-    @Column(columnDefinition = "CHAR(26)", nullable = false)
+    @Column(columnDefinition = "CHAR(26)")
     val managementNumber: String? = null,
 
-    @Column(columnDefinition = "INT(5)", nullable = false)
+    @Column(columnDefinition = "INT(5)")
     val buildingNum: Int? = null,
 
-    @Column(columnDefinition = "INT(5)", nullable = false)
+    @Column(columnDefinition = "INT(5)")
     val buildingSubNum: Int? = null,
 
-    @Column(columnDefinition = "CHAR(5)", nullable = false)
+    @Column(columnDefinition = "CHAR(5)")
     val postNumber: String? = null,
 
-    @Column(columnDefinition = "BIT(5)", nullable = false)
+    @Column(columnDefinition = "BIT(5)")
     val isGiveDetailAddress: Boolean? = null,
 
     roadCodeEntity: RoadCode? = null
 ): BaseUUIDEntity() {
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "road_coad_id", columnDefinition = "BINARY(16)", nullable = false)
+    @JoinColumn(name = "road_coad_id", columnDefinition = "BINARY(16)")
     var roadCodeEntity = roadCodeEntity
         protected set
 }

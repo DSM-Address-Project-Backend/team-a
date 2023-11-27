@@ -13,43 +13,43 @@ import javax.persistence.Table
 @Table(name = "tbl_street_number")
 @Entity
 class StreetNumber (
-    @Column(columnDefinition = "CHAR(10)", nullable = false)
+    @Column(columnDefinition = "CHAR(10)")
     val legalDistrictCode: String? = null,
 
-    @Column(columnDefinition = "VARCHAR(40)", nullable = false)
+    @Column(columnDefinition = "VARCHAR(40)")
     val cityName: String? = null,
 
-    @Column(columnDefinition = "VARCHAR(40)", nullable = false)
+    @Column(columnDefinition = "VARCHAR(40)")
     val siGunGuName: String? = null,
 
-    @Column(columnDefinition = "VARCHAR(40)", nullable = false)
+    @Column(columnDefinition = "VARCHAR(40)")
     val legalEmdName: String? = null,
 
-    @Column(columnDefinition = "VARCHAR(40)", nullable = false)
+    @Column(columnDefinition = "VARCHAR(40)")
     val legalName: String? = null,
 
-    @Column(columnDefinition = "INT(4)", nullable = false)
+    @Column(columnDefinition = "INT(4)")
     val areaNum: Int? = null,
 
-    @Column(columnDefinition = "INT(4)", nullable = false)
+    @Column(columnDefinition = "INT(4)")
     val areaSubNum: Int? = null,
 
-    @Column(columnDefinition = "VARCHAR(40)", nullable = false)
+    @Column(columnDefinition = "VARCHAR(40)")
     val engCityName: String? = null,
 
-    @Column(columnDefinition = "VARCHAR(40)", nullable = false)
+    @Column(columnDefinition = "VARCHAR(40)")
     val engSiGunGuName: String? = null,
 
-    @Column(columnDefinition = "VARCHAR(40)", nullable = false)
+    @Column(columnDefinition = "VARCHAR(40)")
     val engLegalEmdName: String? = null,
 
-    @Column(columnDefinition = "VARCHAR(40)", nullable = false)
+    @Column(columnDefinition = "VARCHAR(40)")
     val engLegalName: String? = null,
 
     roadAddress: RoadAddress? = null
 ) : BaseUUIDEntity() {
     @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "road_address_id", columnDefinition = "BINARY(16)", nullable = false)
+    @JoinColumn(name = "road_address_id", columnDefinition = "BINARY(16)")
     var roadAddress = roadAddress
         protected set
 }
