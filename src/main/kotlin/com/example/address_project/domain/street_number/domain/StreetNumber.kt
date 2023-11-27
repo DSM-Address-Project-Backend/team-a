@@ -14,39 +14,39 @@ import javax.persistence.Table
 @Entity
 class StreetNumber (
     @Column(columnDefinition = "CHAR(10)", nullable = false)
-    val legalDistrictCode: String,
+    val legalDistrictCode: String? = null,
 
     @Column(columnDefinition = "VARCHAR(40)", nullable = false)
-    val cityName: String,
+    val cityName: String? = null,
 
     @Column(columnDefinition = "VARCHAR(40)", nullable = false)
-    val siGunGuName: String,
+    val siGunGuName: String? = null,
 
     @Column(columnDefinition = "VARCHAR(40)", nullable = false)
-    val legalEmdName: String,
+    val legalEmdName: String? = null,
 
     @Column(columnDefinition = "VARCHAR(40)", nullable = false)
-    val legalName: String,
+    val legalName: String? = null,
 
     @Column(columnDefinition = "INT(4)", nullable = false)
-    val areaNum: Int,
+    val areaNum: Int? = null,
 
     @Column(columnDefinition = "INT(4)", nullable = false)
-    val areaSubNum: Int,
+    val areaSubNum: Int? = null,
 
     @Column(columnDefinition = "VARCHAR(40)", nullable = false)
-    val engCityName: String,
+    val engCityName: String? = null,
 
     @Column(columnDefinition = "VARCHAR(40)", nullable = false)
-    val engSiGunGuName: String,
+    val engSiGunGuName: String? = null,
 
     @Column(columnDefinition = "VARCHAR(40)", nullable = false)
-    val engLegalEmdName: String,
+    val engLegalEmdName: String? = null,
 
     @Column(columnDefinition = "VARCHAR(40)", nullable = false)
-    val engLegalName: String,
+    val engLegalName: String? = null,
 
-    roadAddress: RoadAddress
+    roadAddress: RoadAddress? = null
 ) : BaseUUIDEntity() {
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "road_address_id", columnDefinition = "BINARY(16)", nullable = false)
