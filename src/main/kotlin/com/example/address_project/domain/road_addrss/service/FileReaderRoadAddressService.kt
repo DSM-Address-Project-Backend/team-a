@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.multipart.MultipartFile
 import java.io.File
-import javax.persistence.Column
 
 @Service
 class FileReaderRoadAddressService (
@@ -17,7 +16,7 @@ class FileReaderRoadAddressService (
         @Value("\${upload.dir}")
         private var uploadDir: String,
         private val roadAddressRepository: RoadAddressRepository,
-        private val addressZipFileService: AddressZipFileService
+        private val addressZipFileService: AddressZipFileService,
 ) {
 
     @Transactional
@@ -52,8 +51,7 @@ class FileReaderRoadAddressService (
                     managementNumber = columns[1],
                     buildingNum = columns[13].toInt(),
                     buildingSubNum = columns[14].toInt(),
-                    postNumber = columns[17],
-                    isGiveDetailAddress = columns[3].toBoolean()
+                    postNumber = columns[17]
             )
 
             roadAddressRepository.save(roadAddress)

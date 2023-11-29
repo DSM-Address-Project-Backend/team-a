@@ -23,10 +23,7 @@ class RoadAddress(
     @Column(columnDefinition = "CHAR(5)", nullable = false)
     val postNumber: String,
 
-    @Column(columnDefinition = "BIT(5)", nullable = false)
-    val isGiveDetailAddress: Boolean,
-
-    roadCodeEntity: RoadCode
+    roadCodeEntity: RoadCode? = null
 ): BaseUUIDEntity() {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "road_coad_id", columnDefinition = "BINARY(16)")
