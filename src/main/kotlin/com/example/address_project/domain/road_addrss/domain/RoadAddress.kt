@@ -11,22 +11,22 @@ import javax.persistence.Table
 @Table(name = "tbl_road_address")
 @Entity
 class RoadAddress(
-    @Column(columnDefinition = "CHAR(26)")
-    val managementNumber: String? = null,
+    @Column(columnDefinition = "CHAR(26)", nullable = false)
+    val managementNumber: String,
 
-    @Column(columnDefinition = "INT(5)")
-    val buildingNum: Int? = null,
+    @Column(columnDefinition = "INT(5)", nullable = false)
+    val buildingNum: Int,
 
-    @Column(columnDefinition = "INT(5)")
-    val buildingSubNum: Int? = null,
+    @Column(columnDefinition = "INT(5)", nullable = false)
+    val buildingSubNum: Int,
 
-    @Column(columnDefinition = "CHAR(5)")
-    val postNumber: String? = null,
+    @Column(columnDefinition = "CHAR(5)", nullable = false)
+    val postNumber: String,
 
-    @Column(columnDefinition = "BIT(5)")
-    val isGiveDetailAddress: Boolean? = null,
+    @Column(columnDefinition = "BIT(5)", nullable = false)
+    val isGiveDetailAddress: Boolean,
 
-    roadCodeEntity: RoadCode? = null
+    roadCodeEntity: RoadCode
 ): BaseUUIDEntity() {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "road_coad_id", columnDefinition = "BINARY(16)")
