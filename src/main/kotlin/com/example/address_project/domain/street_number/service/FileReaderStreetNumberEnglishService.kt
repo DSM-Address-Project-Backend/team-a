@@ -5,7 +5,6 @@ import com.example.address_project.domain.street_number.domain.StreetNumber
 import com.example.address_project.domain.street_number.domain.repository.StreetNumberRepository
 import com.example.address_project.infrastructure.common.feign.dto.UnzipFile
 import com.example.address_project.infrastructure.common.feign.service.AddressZipFileService
-import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.multipart.MultipartFile
