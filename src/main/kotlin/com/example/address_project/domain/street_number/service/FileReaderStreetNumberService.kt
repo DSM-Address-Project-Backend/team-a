@@ -20,16 +20,12 @@ class FileReaderStreetNumberService (
 ) {
 
     @Transactional
-    fun readerKorea(file: MultipartFile, unzipFile: UnzipFile) {
+    fun readerStreetNumberKorea(file: MultipartFile, unzipFile: UnzipFile) {
 
         val filePath = saveFileFacade.saveFile(file)
 
         addressZipFileService.addressFileWriter(unzipFile)
 
-        saveStreetNumber(filePath)
-    }
-
-    private fun saveStreetNumber(filePath: String) {
         val lines = File(filePath).readLines()
         for (line in lines) {
             val columns = line.split("|")

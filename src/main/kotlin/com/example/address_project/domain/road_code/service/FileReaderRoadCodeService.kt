@@ -20,17 +20,12 @@ class FileReaderRoadCodeService (
 ) {
 
     @Transactional
-    fun readerKorea(file: MultipartFile, unzipFile: UnzipFile) {
+    fun readerRoadCodeKorea(file: MultipartFile, unzipFile: UnzipFile) {
 
         val filePath = saveFileFacade.saveFile(file)
 
         addressZipFileService.addressFileWriter(unzipFile)
 
-        saveRoadCode(filePath)
-    }
-
-
-    private fun saveRoadCode(filePath: String) {
         val lines = File(filePath).readLines()
         for (line in lines) {
             val columns = line.split("|")

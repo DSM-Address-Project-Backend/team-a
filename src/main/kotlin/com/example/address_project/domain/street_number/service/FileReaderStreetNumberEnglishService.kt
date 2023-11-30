@@ -20,27 +20,24 @@ class FileReadeStreetNumberEnglishService (
 ) {
 
     @Transactional
-    fun readerEnglish(file: MultipartFile, unzipFile: UnzipFile) {
+    fun readerStreetNumberEnglish(file: MultipartFile, unzipFile: UnzipFile) {
 
         val filePath = saveFileFacade.saveFile(file)
 
         addressZipFileService.addressFileWriter(unzipFile)
 
-        saveEnglishStreetNumber(filePath)
-    }
-
-    private fun saveEnglishStreetNumber(filePath: String) {
         val lines = File(filePath).readLines()
         for (line in lines) {
             val columns = line.split("|")
             val streetNumber = StreetNumber(
-                    engCityName = columns[3],
-                    engSiGunGuName = columns[4],
-                    engLegalEmdName = columns[5],
-                    engLegalName = columns[6]
+                engCityName = columns[3],
+                engSiGunGuName = columns[4],
+                engLegalEmdName = columns[5],
+                engLegalName = columns[6]
             )
 
             streetNumberRepository.save(streetNumber)
         }
     }
+
 }

@@ -20,24 +20,20 @@ class FileReaderRoadAddressService (
 ) {
 
     @Transactional
-    fun readerKorea(file: MultipartFile, unzipFile: UnzipFile) {
+    fun readerRoadAddressKorea(file: MultipartFile, unzipFile: UnzipFile) {
 
         val filePath = saveFileFacade.saveFile(file)
 
         addressZipFileService.addressFileWriter(unzipFile)
 
-        saveRoadAddress(filePath)
-    }
-
-    private fun saveRoadAddress(filePath: String) {
         val lines = File(filePath).readLines()
         for (line in lines) {
             val columns = line.split("|")
             val roadAddress = RoadAddress(
-                    managementNumber = columns[1],
-                    buildingNum = columns[13].toInt(),
-                    buildingSubNum = columns[14].toInt(),
-                    postNumber = columns[17]
+                managementNumber = columns[1],
+                buildingNum = columns[13].toInt(),
+                buildingSubNum = columns[14].toInt(),
+                postNumber = columns[17]
             )
 
             roadAddressRepository.save(roadAddress)
