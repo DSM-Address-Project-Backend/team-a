@@ -29,7 +29,6 @@ class FileReaderRoadAddressService (
         saveRoadAddress(filePath)
     }
 
-
     private fun saveRoadAddress(filePath: String) {
         val lines = File(filePath).readLines()
         for (line in lines) {
