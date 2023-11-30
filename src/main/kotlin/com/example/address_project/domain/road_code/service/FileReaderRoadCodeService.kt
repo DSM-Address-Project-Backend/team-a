@@ -1,5 +1,6 @@
 package com.example.address_project.domain.road_code.service
 
+import com.example.address_project.domain.facade.SaveFileFacade
 import com.example.address_project.domain.road_code.domain.RoadCode
 import com.example.address_project.domain.road_code.domain.repository.RoadCodeRepository
 import com.example.address_project.infrastructure.common.feign.dto.UnzipFile
@@ -13,35 +14,21 @@ import java.io.File
 @Service
 class FileReaderRoadCodeService (
 
-    @Value("\${upload.dir}")
-    private  var uploadDir: String,
     private val roadCodeRepository: RoadCodeRepository,
-    private val addressZipFileService: AddressZipFileService
+    private val addressZipFileService: AddressZipFileService,
+    private val saveFileFacade: SaveFileFacade
 ) {
 
     @Transactional
-    fun readerKorea(reqType: String, year: String, month: String, fileName: String, realFileName: String, file: MultipartFile, unzipFile: UnzipFile) {
+    fun readerKorea(file: MultipartFile, unzipFile: UnzipFile) {
 
-        val filePath = saveFile(file)
+        val filePath = saveFileFacade.saveFile(file)
 
         addressZipFileService.addressFileWriter(unzipFile)
 
         saveRoadCode(filePath)
     }
 
-    private fun saveFile(file: MultipartFile): String {
-        val uploadPath = File(uploadDir)
-
-        if (!uploadPath.exists()) {
-            uploadPath.mkdirs()
-        }
-
-        val targetLocation = File(uploadPath, file.originalFilename!!)
-
-        file.transferTo(targetLocation)
-
-        return targetLocation.absolutePath
-    }
 
     private fun saveRoadCode(filePath: String) {
         val lines = File(filePath).readLines()
