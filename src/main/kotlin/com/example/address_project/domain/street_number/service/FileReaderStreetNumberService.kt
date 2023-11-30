@@ -20,7 +20,7 @@ class FileReaderStreetNumberService (
 ) {
 
     @Transactional
-    fun readerKorea(reqType: String, year: String, month: String, fileName: String, realFileName: String, file: MultipartFile, unzipFile: UnzipFile) {
+    fun readerKorea(file: MultipartFile, unzipFile: UnzipFile) {
 
         val filePath = saveFileFacade.saveFile(file)
 
