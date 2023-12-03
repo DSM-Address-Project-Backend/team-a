@@ -1,14 +1,11 @@
 package com.example.address_project.domain.street_number.domain
 
+import com.example.address_project.domain.enums.Type
 import com.example.address_project.domain.road_addrss.domain.RoadAddress
 import com.example.address_project.global.entity.BaseUUIDEntity
 import java.util.*
-import javax.persistence.Column
-import javax.persistence.Entity
+import javax.persistence.*
 import javax.persistence.FetchType.LAZY
-import javax.persistence.JoinColumn
-import javax.persistence.ManyToOne
-import javax.persistence.Table
 
 @Table(name = "tbl_street_number")
 @Entity
@@ -45,6 +42,9 @@ class StreetNumber (
 
     @Column(columnDefinition = "VARCHAR(40)")
     val engLegalName: String? = null,
+
+    @Enumerated(EnumType.STRING)
+    val type: Type? = null,
 
     roadAddress: RoadAddress? = null
 ) : BaseUUIDEntity() {

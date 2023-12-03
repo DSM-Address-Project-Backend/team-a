@@ -1,10 +1,8 @@
 package com.example.address_project.domain.road_code.domain
 
+import com.example.address_project.domain.enums.Type
 import com.example.address_project.global.entity.BaseUUIDEntity
-
-import javax.persistence.Entity
-import javax.persistence.Table
-import javax.persistence.Column
+import javax.persistence.*
 
 @Table(name = "tbl_road_code")
 @Entity
@@ -44,6 +42,9 @@ class RoadCode(
     val emdSerialNum: String? = null,
 
     @Column(columnDefinition = "CHAR(12)")
-    val roadNameCode: String? = null
+    val roadNameCode: String? = null,
+
+    @Enumerated(EnumType.STRING)
+    val type: Type? = null
 
 ) : BaseUUIDEntity()

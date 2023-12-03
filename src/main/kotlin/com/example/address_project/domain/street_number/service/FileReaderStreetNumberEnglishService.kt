@@ -1,5 +1,6 @@
 package com.example.address_project.domain.street_number.service
 
+import com.example.address_project.domain.enums.Type
 import com.example.address_project.domain.facade.SaveFileFacade
 import com.example.address_project.domain.street_number.domain.StreetNumber
 import com.example.address_project.domain.street_number.domain.repository.StreetNumberRepository
@@ -28,6 +29,7 @@ class FileReadeStreetNumberEnglishService (
         for (line in lines) {
             val columns = line.split("|")
             val streetNumber = StreetNumber(
+                type = Type.LOCAL_NUMBER,
                 engCityName = columns[3],
                 engSiGunGuName = columns[4],
                 engLegalEmdName = columns[5],

@@ -1,5 +1,6 @@
 package com.example.address_project.domain.road_code.service
 
+import com.example.address_project.domain.enums.Type
 import com.example.address_project.domain.facade.SaveFileFacade
 import com.example.address_project.domain.road_code.domain.RoadCode
 import com.example.address_project.domain.road_code.domain.repository.RoadCodeRepository
@@ -28,6 +29,7 @@ class FileReaderRoadCodeService (
         for (line in lines) {
             val columns = line.split("|")
             val roadCode = RoadCode(
+                type = Type.ROAD_NAME,
                 roadName = columns[4],
                 cityName = columns[6],
                 sggName = columns[7],
