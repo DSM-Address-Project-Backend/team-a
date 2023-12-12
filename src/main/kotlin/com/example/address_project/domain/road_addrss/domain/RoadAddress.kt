@@ -1,12 +1,8 @@
 package com.example.address_project.domain.road_addrss.domain
+import com.example.address_project.domain.enums.Type
 import com.example.address_project.domain.road_code.domain.RoadCode
 import com.example.address_project.global.entity.BaseUUIDEntity
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.FetchType
-import javax.persistence.JoinColumn
-import javax.persistence.ManyToOne
-import javax.persistence.Table
+import javax.persistence.*
 
 @Table(name = "tbl_road_address")
 @Entity
@@ -23,13 +19,13 @@ class RoadAddress(
     @Column(columnDefinition = "CHAR(5)", nullable = false)
     val postNumber: String,
 
-    @Column(columnDefinition = "BIT(5)", nullable = false)
-    val isGiveDetailAddress: Boolean,
+    @Enumerated(EnumType.STRING)
+    val type: Type? = null,
 
-    roadCodeEntity: RoadCode
+    roadCodeEntity: RoadCode? = null
 ): BaseUUIDEntity() {
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "road_coad_id", columnDefinition = "BINARY(16)", nullable = false)
+    @JoinColumn(name = "road_coad_id", columnDefinition = "BINARY(16)")
     var roadCodeEntity = roadCodeEntity
         protected set
 }
