@@ -45,6 +45,12 @@ class RoadCode(
     val roadNameCode: String? = null,
 
     @Enumerated(EnumType.STRING)
-    val type: Type? = null
+    val type: Type? = null,
+
+    @Column(columnDefinition = "VARCHAR(60)")
+    val korFullRodeCode: String? = null,
+
+    @Column(columnDefinition = "VARCHAR(60)")
+    val engFullRodeCode: String? = null,
 
 ) : BaseUUIDEntity()
