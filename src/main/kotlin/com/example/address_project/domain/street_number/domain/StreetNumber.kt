@@ -46,6 +46,12 @@ class StreetNumber (
     @Enumerated(EnumType.STRING)
     val type: Type? = null,
 
+    @Column(columnDefinition = "VARCHAR(160)")
+    val korFullStreetNumber: String? = null,
+
+    @Column(columnDefinition = "VARCHAR(160)")
+    val engFullStreetNumber: String? = null,
+
     roadAddress: RoadAddress? = null
 ) : BaseUUIDEntity() {
     @ManyToOne(fetch = LAZY)
