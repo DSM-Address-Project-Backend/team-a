@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController
 class AddressController(
     private val searchService: SearchService
 ) {
-    @GetMapping
+    @GetMapping("/help")
     fun search(@RequestParam("keyword") keyword: String): SearchResponse {
         return searchService.execute(keyword)
     }
