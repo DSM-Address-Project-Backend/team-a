@@ -1,6 +1,6 @@
 package com.example.address_project.domain.p_o_box.domain.repository
 
-import com.example.address_project.domain.p_o_box.domain.PostOfficeBox
+import com.example.address_project.domain.post_office_box.domain.PostOfficeBox
 import org.springframework.data.repository.CrudRepository
 import java.util.UUID
 
