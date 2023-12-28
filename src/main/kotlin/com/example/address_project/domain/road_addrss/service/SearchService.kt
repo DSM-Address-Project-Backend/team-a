@@ -18,8 +18,12 @@ class SearchService(
         val roadCodes = roadCodeRepository.findAllByKorFullRodeCode(keyword).map { it.korFullRodeCode }
         val postOfficeBoxNames = postOfficeBoxRepository.findAllByPoBoxName(keyword).map { it.poBoxName }
         val streetNumbers = streetNumberRepository.findAllByKorFullStreetNumber(keyword).map { it.korFullStreetNumber }
-        val item = roadCodes + postOfficeBoxNames + streetNumbers
+        val item = (roadCodes + postOfficeBoxNames + streetNumbers).filterNot { it.isNullOrEmpty() }
 
-        return SearchResponse(item.filterNot { it.isNullOrEmpty() }.subList(0, 9))
+        return if (item.isEmpty() || item.size < 9) {
+            SearchResponse(item)
+        } else {
+            SearchResponse(item.subList(0, 9))
+        }
     }
 }
