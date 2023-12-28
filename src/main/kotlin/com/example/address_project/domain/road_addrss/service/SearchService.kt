@@ -15,11 +15,11 @@ class SearchService(
 ) {
     @Transactional(readOnly = true)
     fun execute(keyword: String): SearchResponse {
-        val roadCodes = roadCodeRepository.findAllByKorFullRodeCode(keyword).map { it.korFullRodeCode }.filterNot { it.isNullOrEmpty() }
-        val postOfficeBoxNames = postOfficeBoxRepository.findAllByPoBoxName(keyword).map { it.poBoxName }.filterNot { it.isEmpty() }
-        val streetNumbers = streetNumberRepository.findAllByKorFullStreetNumber(keyword).map { it.korFullStreetNumber }.filterNot { it.isNullOrEmpty() }
+        val roadCodes = roadCodeRepository.findAllByKorFullRodeCode(keyword).map { it.korFullRodeCode }
+        val postOfficeBoxNames = postOfficeBoxRepository.findAllByPoBoxName(keyword).map { it.poBoxName }
+        val streetNumbers = streetNumberRepository.findAllByKorFullStreetNumber(keyword).map { it.korFullStreetNumber }
         val item = roadCodes + postOfficeBoxNames + streetNumbers
 
-        return SearchResponse(item)
+        return SearchResponse(item.filterNot { it.isNullOrEmpty() }.subList(0, 9))
     }
 }
