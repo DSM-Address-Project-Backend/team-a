@@ -1,4 +1,4 @@
-package com.example.address_project.domain.p_o_box.domain
+package com.example.address_project.domain.post_office_box.domain
 
 import com.example.address_project.domain.enums.Type
 import com.example.address_project.global.entity.BaseUUIDEntity
