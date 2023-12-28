@@ -1,8 +1,10 @@
 package com.example.address_project.domain.road_addrss.domain
 import com.example.address_project.domain.enums.Type
 import com.example.address_project.domain.road_code.domain.RoadCode
+import com.example.address_project.domain.street_number.domain.StreetNumber
 import com.example.address_project.global.entity.BaseUUIDEntity
 import javax.persistence.*
+import javax.persistence.FetchType.*
 
 @Table(name = "tbl_road_address")
 @Entity
@@ -22,10 +24,8 @@ class RoadAddress(
     @Enumerated(EnumType.STRING)
     val type: Type? = null,
 
-    roadCodeEntity: RoadCode? = null
+    @OneToMany(fetch = LAZY, mappedBy = "roadAddress")
+    val roadCode: List<RoadCode>? = null
 ): BaseUUIDEntity() {
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "road_coad_id", columnDefinition = "BINARY(16)")
-    var roadCodeEntity = roadCodeEntity
-        protected set
+
 }
