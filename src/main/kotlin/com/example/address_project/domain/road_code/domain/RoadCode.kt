@@ -1,8 +1,11 @@
 package com.example.address_project.domain.road_code.domain
 
 import com.example.address_project.domain.enums.Type
+import com.example.address_project.domain.road_addrss.domain.RoadAddress
+import com.example.address_project.domain.street_number.domain.StreetNumber
 import com.example.address_project.global.entity.BaseUUIDEntity
 import javax.persistence.*
+import javax.persistence.FetchType.*
 
 @Table(name = "tbl_road_code")
 @Entity
@@ -53,4 +56,17 @@ class RoadCode(
     @Column(columnDefinition = "VARCHAR(60)")
     val engFullRodeCode: String? = null,
 
-) : BaseUUIDEntity()
+    roadAddress: RoadAddress? = null,
+    streetNumber: StreetNumber? = null
+
+) : BaseUUIDEntity() {
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "road_address_id", columnDefinition = "BINARY(16)")
+    var roadAddress = roadAddress
+        protected set
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "street_number_id", columnDefinition = "BINARY(16)")
+    var streetNumber = streetNumber
+        protected set
+}
