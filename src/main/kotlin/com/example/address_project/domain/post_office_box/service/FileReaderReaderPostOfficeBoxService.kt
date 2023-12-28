@@ -2,7 +2,7 @@ package com.example.address_project.domain.post_office_box.service
 
 import com.example.address_project.domain.enums.Type
 import com.example.address_project.domain.facade.SaveFileFacade
-import com.example.address_project.domain.p_o_box.domain.repository.PostOfficeBoxRepository
+import com.example.address_project.domain.post_office_box.domain.repository.PostOfficeBoxRepository
 import com.example.address_project.domain.post_office_box.domain.PostOfficeBox
 import com.example.address_project.infrastructure.common.feign.dto.UnzipFile
 import com.example.address_project.infrastructure.common.feign.service.AddressZipFileService

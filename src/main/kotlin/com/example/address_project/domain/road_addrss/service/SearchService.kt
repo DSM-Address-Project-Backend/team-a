@@ -1,6 +1,6 @@
 package com.example.address_project.domain.road_addrss.service
 
-import com.example.address_project.domain.p_o_box.domain.repository.PostOfficeBoxRepository
+import com.example.address_project.domain.post_office_box.domain.repository.PostOfficeBoxRepository
 import com.example.address_project.domain.road_addrss.presentation.dto.response.SearchResponse
 import com.example.address_project.domain.road_code.domain.repository.RoadCodeRepository
 import com.example.address_project.domain.street_number.domain.repository.StreetNumberRepository
