@@ -5,4 +5,5 @@ import org.springframework.data.repository.CrudRepository
 import java.util.UUID
 
 interface RoadCodeRepository : CrudRepository<RoadCode, UUID> {
+    fun findAllByKorFullRodeCode(name: String): List<RoadCode>
 }

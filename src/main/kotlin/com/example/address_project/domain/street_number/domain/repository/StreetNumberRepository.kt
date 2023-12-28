@@ -5,4 +5,5 @@ import org.springframework.data.repository.CrudRepository
 import java.util.UUID
 
 interface StreetNumberRepository : CrudRepository<StreetNumber, UUID> {
+    fun findAllByKorFullStreetNumber(name: String): List<StreetNumber>
 }
