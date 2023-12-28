@@ -23,22 +23,36 @@ class SearchService(
         val roadCodes: List<RoadCode> = roadCodeRepository.findAllByKorFullRodeCode(keyword)
 
         return SearchResponse(
-            roadCodes.map { roadCode ->
-                val jibuns = streetNumberRepository.findAllByRoadCode(roadCode)
-                    .map { Name(it.korFullStreetNumber!!, it.engFullStreetNumber!!) }
-                val roadNames = roadAddressRepository.findAllByRoadCode(roadCode)
-                    .map { Name(roadCode.korFullRodeCode!!, roadCode.engFullRodeCode!!) }
-                val post = postOfficeBoxRepository.findAllByPoBoxName(keyword).map { it.poBoxName }
-
-                SearchElement(
-                    type = roadCode.type as Int,
-                    postalCode = roadCode.postalCode.toString(),
-                    representAddressName = if (roadCode.isRepresent == true) roadCode.roadName!! else "",
-                    jibuns = jibuns,
-                    roadName = roadNames,
-                    post = post.firstOrNull()
-                )
-            }
+            roadCodes.map { createSearchElement(it, keyword) }
         )
+    }
+
+    private fun createSearchElement(roadCode: RoadCode, keyword: String): SearchElement {
+        return SearchElement(
+            type = roadCode.type as Int,
+            postalCode = roadCode.postalCode.toString(),
+            representAddressName = getRepresentAddressName(roadCode),
+            jibuns = getJibuns(roadCode),
+            roadName = getRoadNames(roadCode),
+            post = getPost(keyword)
+        )
+    }
+
+    private fun getJibuns(roadCode: RoadCode): List<Name> {
+        return streetNumberRepository.findAllByRoadCode(roadCode)
+            .map { Name(it.korFullStreetNumber!!, it.engFullStreetNumber!!) }
+    }
+
+    private fun getRoadNames(roadCode: RoadCode): List<Name> {
+        return roadAddressRepository.findAllByRoadCode(roadCode)
+            .map { Name(roadCode.korFullRodeCode!!, roadCode.engFullRodeCode!!) }
+    }
+
+    private fun getPost(keyword: String): String? {
+        return postOfficeBoxRepository.findAllByPoBoxName(keyword).firstOrNull()?.poBoxName
+    }
+
+    private fun getRepresentAddressName(roadCode: RoadCode): String {
+        return if (roadCode.isRepresent == true) roadCode.roadName!! else ""
     }
 }
