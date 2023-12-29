@@ -8,6 +8,8 @@ import com.example.address_project.domain.road_addrss.presentation.dto.response.
 import com.example.address_project.domain.road_code.domain.RoadCode
 import com.example.address_project.domain.road_code.domain.repository.RoadCodeRepository
 import com.example.address_project.domain.street_number.domain.repository.StreetNumberRepository
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.PageRequest
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
@@ -20,10 +22,11 @@ class SearchService(
 ) {
     @Transactional(readOnly = true)
     fun execute(page: Int, keyword: String): SearchResponse {
-        val roadCodes: List<RoadCode> = roadCodeRepository.findAllByKorFullRodeCode(keyword)
+        val pageable = PageRequest.of(page, 10)
+        val roadCodes: Page<RoadCode> = roadCodeRepository.findByKorFullRodeCode(keyword, pageable)
 
         return SearchResponse(
-            roadCodes.map { createSearchElement(it, keyword) }
+            roadCodes.content.map { createSearchElement(it, keyword) }
         )
     }
 
