@@ -56,6 +56,12 @@ class RoadCode(
     @Column(columnDefinition = "VARCHAR(60)")
     val engFullRodeCode: String? = null,
 
+    @Column(columnDefinition = "BIT(1)")
+    var isRepresent: Boolean? = null,
+
+    @Column(columnDefinition = "INT")
+    val postalCode: Int? = null,
+
     roadAddress: RoadAddress? = null,
     streetNumber: StreetNumber? = null
 
