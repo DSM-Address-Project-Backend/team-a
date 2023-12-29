@@ -32,7 +32,7 @@ class SearchService(
 
     private fun createSearchElement(roadCode: RoadCode, keyword: String): SearchElement {
         return SearchElement(
-            type = roadCode.type as Int,
+            type = roadCode.type!!.number,
             postalCode = roadCode.postalCode.toString(),
             representAddressName = getRepresentAddressName(roadCode),
             jibuns = getJibuns(roadCode),
