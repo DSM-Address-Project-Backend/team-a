@@ -24,7 +24,6 @@ class FileReaderRoadAddressService (
                 buildingSubNum = columns[14].toInt(),
                 postNumber = columns[17]
             )
-
             roadAddressRepository.save(roadAddress)
         }
     }

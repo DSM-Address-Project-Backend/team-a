@@ -30,7 +30,6 @@ class FileReaderStreetNumberService (
                 areaNum = columns[8].toInt(),
                 areaSubNum = columns[9].toInt()
             )
-
             roadCodeRepository.save(streetNumber)
         }
     }
