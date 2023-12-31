@@ -2,6 +2,9 @@ server:
   shutdown: graceful
 
 spring:
+  batch:
+    jdbc:
+      initialize-schema: always
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${HOST}/${DB.NAME}?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
@@ -22,5 +25,7 @@ spring:
   lifecycle:
     timeout-per-shutdown-phase: 20s
 
-upload:
-  dir: ${upload}
+file:
+  zip-path: ${ZIP_FILE_PATH}
+  kor-address-path: ${KOR_ADDRESS_PATH}
+  eng-address-path: ${ENG_ADDRESS_PATH}

@@ -5,5 +5,7 @@ data class UnZipFileRequest(
     val year: String,
     val month: String,
     val fileName: String,
-    val realFileName: String
+    val realFileName: String,
+    val zipPath: String,
+    val unzipPath: String,
 )
